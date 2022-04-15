@@ -13,7 +13,13 @@ class _LoginActivityState extends State<LoginActivity> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Tarot"),
+          centerTitle: true,
+        ),
+        body: Container()
+    );
   }
+
  }
