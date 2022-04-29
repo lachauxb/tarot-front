@@ -4,3 +4,4 @@
 const String loginPage = "/login";
 const String gamePage = "/game";
 const String statisticsPage = "/statistics";
+const String newGamePage = "/newGame";

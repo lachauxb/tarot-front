@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tarot_front/configurations/constants.dart';
 import 'activities/game_activity.dart';
 import 'activities/login_activity.dart';
+import 'activities/new_game_activity.dart';
 import 'activities/statistics_activity.dart';
 
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   static Map<String, WidgetBuilder> routes = {
     loginPage : (BuildContext context) => const LoginActivity(),
     gamePage : (BuildContext context) => const GameActivity(),
+    newGamePage : (BuildContext context) => const NewGameActivity(),
     statisticsPage : (BuildContext context) => const StatisticsActivity()
   };
 
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const LoginActivity(),
+      home: const GameActivity(),
       routes: routes,
     );
   }
