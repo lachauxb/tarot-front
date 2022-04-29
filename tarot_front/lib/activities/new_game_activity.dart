@@ -20,6 +20,8 @@ class _NewGameActivityState extends State<NewGameActivity> {
     'quentin'
   ];
 
+  List<String> players = ["", "", "", "", ""];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,23 +33,33 @@ class _NewGameActivityState extends State<NewGameActivity> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Autocomplete<String>(
-              optionsBuilder: (TextEditingValue textEditingValue) {
-                if (textEditingValue.text == '') {
-                  return _kOptions;
-                }
-                return _kOptions.where((String option) {
-                  return option.contains(textEditingValue.text.toLowerCase());
-                });
-              },
-              onSelected: null,
-            ),
-          ]
+          children: getInputPlayers()
         ),
       )
     );
   }
 
+  List<Widget> getInputPlayers(){
+    List<Widget> res = [];
+    for(int i = 0; i < 5 ; i++){
+      res.add(
+        Autocomplete<String>(
+          optionsBuilder: (TextEditingValue textEditingValue) {
+            if (textEditingValue.text == '') {
+              return _kOptions;
+            }
+            return _kOptions.where((String option) {
+              return option.contains(textEditingValue.text.toLowerCase());
+            });
+          },
+          onSelected: (String selection) => players[i] = selection,
+        )
+      );
+      if(i != 4){
+        res.add(const SizedBox(height: 40));
+      }
+    }
+    return res;
+  }
 
 }
