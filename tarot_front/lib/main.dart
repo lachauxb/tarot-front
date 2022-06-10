@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tarot_front/activities/game_activity.dart';
 import 'package:tarot_front/configurations/constants.dart';
-import 'activities/game_activity.dart';
-import 'activities/login_activity.dart';
-import 'activities/new_game_activity.dart';
-import 'activities/statistics_activity.dart';
+import 'package:tarot_front/activities/home_page_activity.dart';
+import 'package:tarot_front/activities/login_activity.dart';
+import 'package:tarot_front/activities/new_game_activity.dart';
+import 'package:tarot_front/activities/statistics_activity.dart';
 
 
 void main() {
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
 
   static Map<String, WidgetBuilder> routes = {
     loginPage : (BuildContext context) => const LoginActivity(),
-    gamePage : (BuildContext context) => const GameActivity(),
+    homePage : (BuildContext context) => const HomePageActivity(),
     newGamePage : (BuildContext context) => const NewGameActivity(),
-    statisticsPage : (BuildContext context) => const StatisticsActivity()
+    statisticsPage : (BuildContext context) => const StatisticsActivity(),
+    gamePage : (BuildContext context) => GameActivity(users: const [])
   };
 
   // This widget is the root of your application.
@@ -28,8 +30,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const GameActivity(),
+      home: const HomePageActivity(),
       routes: routes,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
